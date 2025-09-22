@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Time in countries</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      padding-top: 50px;
+    }
+    .clock {
+      background: white;
+      padding: 20px;
+      margin: 10px auto;
+      border-radius: 8px;
+      width: 250px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>time in countries</h1>
+
+  <div class="clock" id="romania"></div>
+  <div class="clock" id="usa"></div>
+  <div class="clock" id="japonia"></div>
+  <div class="clock" id="australia"></div>
+  <div class="clock" id="brazilia"></div>
+  <div class="clock" id="india"></div>
+  <div class="clock" id="germania"></div>
+  <div class="clock" id="africa"></div>
+
+  <script>
+    function updateClock() {
+      const options = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+
+      const romania = new Date().toLocaleTimeString("ro-RO", { ...options, timeZone: "Europe/Bucharest" });
+      const usa = new Date().toLocaleTimeString("en-US", { ...options, timeZone: "America/New_York" });
+      const japonia = new Date().toLocaleTimeString("ja-JP", { ...options, timeZone: "Asia/Tokyo" });
+      const australia = new Date().toLocaleTimeString("en-AU", { ...options, timeZone: "Australia/Sydney" });
+      const brazilia = new Date().toLocaleTimeString("pt-BR", { ...options, timeZone: "America/Sao_Paulo" });
+      const india = new Date().toLocaleTimeString("en-IN", { ...options, timeZone: "Asia/Kolkata" });
+      const germania = new Date().toLocaleTimeString("de-DE", { ...options, timeZone: "Europe/Berlin" });
+      const africa = new Date().toLocaleTimeString("en-ZA", { ...options, timeZone: "Africa/Johannesburg" });
+
+      document.getElementById("romania").innerHTML = "🇷🇴 România: " + romania;
+      document.getElementById("usa").innerHTML = "🇺🇸 SUA (New York): " + usa;
+      document.getElementById("japonia").innerHTML = "🇯🇵 Japonia: " + japonia;
+      document.getElementById("australia").innerHTML = "🇦🇺 Australia (Sydney): " + australia;
+      document.getElementById("brazilia").innerHTML = "🇧🇷 Brazilia (São Paulo): " + brazilia;
+      document.getElementById("india").innerHTML = "🇮🇳 India (Kolkata): " + india;
+      document.getElementById("germania").innerHTML = "🇩🇪 Germania (Berlin): " + germania;
+      document.getElementById("africa").innerHTML = "🇿🇦 Africa de Sud (Johannesburg): " + africa;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock(); // rulează imediat la început
+  </script>
+</body>
+</html>
